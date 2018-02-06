@@ -1,1 +1,66 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	h2,form{
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+   <h2>Ex2 - Search String Non Sensitive Case</h2>	
+   <hr width = "Full"></hr><br>
+   <form>
+	Text Input : 
+	<textarea name="txtar1" id="txtar1" cols="50" rows="4" 
+		class="form-control" style="margin: 0px 4.32813px 0px 0px; 
+		width: 670px; height: 87px;">
+	</textarea><br><br>
+	Sensitive Case :
+		<input type="radio" name="check" value="1" class="radio icheck" checked > Yes
+      		<input type="radio" name="check" value="2" class="radio icheck"> No <br><br>
+ 	Search :
+		<input type="text" class="form-control" id="txtar2" placeholder=" search"><br><br>
+		<button type="button" onclick="Search()"> Search </button><br><br>
+      	Result for Search : 
+		<span id="result"><span>
+   </form><br>
+</body>
+</html>
+<script>
+      function Search(){
+        var txtar1 = document.getElementById('txtar1').value;
+        var txtar2 = document.getElementById('txtar2').value;
+        var radio = document.querySelector('input[name="check"]:checked').value;
+        if(radio==1){
+          if(txtar2==""||txtar1==""){
+            document.getElementById('result').innerHTML = " No input";
+          }
+          else{
+            var re = new RegExp(txtar2, 'g');
+            var count = txtar1.match(res);
+            if(count==null){
+              document.getElementById('result').innerHTML = "0";
+            }
+            else{
+              document.getElementById('result').innerHTML = txtar1.match(re).length;;
+            }
+          }
+        }
+        else if(radio==2){
+          if(txtar2==""||txtar1==""){
+            document.getElementById('result').innerHTML = " No input";
+          }
+          else{
+            var res = new RegExp(txtar2, 'gi');
+            var count = txtar1.match(re);
+            if(count==null){
+              document.getElementById('result').innerHTML = "0";
+            }
+            else{
+              document.getElementById('result').innerHTML = txtar1.match(re).length;;
+            }
+          }
+        }
+      }
+      </script>
